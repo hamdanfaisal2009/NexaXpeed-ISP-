@@ -29,8 +29,7 @@
   <div class="container">
     <div class="section-label light">Get In Touch</div>
     <h1>Contact Us</h1>
-    <p>Want to get a connection or have any questions? We are always here for you.
-</p>
+    <p>Want to get a connection or have any questions? We are always here for you.</p>
   </div>
 </section>
 
@@ -40,7 +39,7 @@
       <!-- FORM -->
       <div class="contact-form-wrap">
         <h3>Get a New Connection</h3>
-        <p>Form fill karein — hamare team se 24 ghantay mein rabta hoga.</p>
+        <p>Fill out the form — our team will get in touch with you within 24 hours.</p>
         <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
@@ -75,7 +74,7 @@
             <textarea id="message" placeholder="Any question or details"></textarea>
           </div>
           <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:14px;">
-            Submit Request
+            Send request on whatsapp / Text Message
           </button>
           <p id="formMsg" style="display:none;margin-top:14px;color:var(--success);font-weight:600;text-align:center;">✓ Request bhej di gayi! Jald rabta hoga.</p>
         </form>
@@ -133,10 +132,9 @@
         <!-- MAP -->
         <div class="map-placeholder">
           <div class="map-icon">📍</div>
-          <p style="font-weight:600;color:var(--text-primary);">Karachi, Pakistan</p>
-          <p>We provide services in Karachi and surrounding areas.
-.</p>
-          <a href="https://www.google.com/maps/search/Karachi+Pakistan" target="_blank" class="btn btn-primary btn-sm" style="margin-top:8px;">View on Google Maps</a>
+          <p style="font-weight:600;color:var(--text-primary);">internet Service Provider Nn, Agra taj , Liyari, Karachi, Pakistan</p>
+          <p>We provide services in Karachi and surrounding areas.</p>
+          <a href="https://maps.app.goo.gl/o7tpvFJDGfNogpLd8" target="_blank" class="btn btn-primary btn-sm" style="margin-top:8px;">View on Google Maps</a>
         </div>
       </div>
     </div>
@@ -158,6 +156,37 @@
 </a>
 <script src="main.js"></script>
 <script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+  let message = document.getElementById("message").value;
+  let area = document.getElementById("area").value;
+  let package = document.getElementById("package").value;
+
+  let fullMessage = `New Connection Request:
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Area: ${area}
+Package: ${package}
+Message: ${message}`;
+
+  let whatsappURL = "https://wa.me/+923272585977?text=" + encodeURIComponent(fullMessage);
+
+  let smsURL = "sms:+923272585977?body=" + encodeURIComponent(fullMessage);
+
+  window.open(whatsappURL, "_blank");
+
+  setTimeout(() => {
+    window.location.href = smsURL;
+  }, 1000);
+
+});
+
+
 document.getElementById('contactForm').addEventListener('submit', function(e){
   e.preventDefault();
   document.getElementById('formMsg').style.display = 'block';
